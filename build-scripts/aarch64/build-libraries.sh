@@ -88,11 +88,20 @@ cd /tmp
   make
   make install
   cd /tmp
+  wget https://raw.githubusercontent.com/Saint-Theana/aria2-android-static-build/master/libdl/libdl.c
+  /opt/toolchain/bin/clang -c libdl.c
+/opt/toolchain/bin/a*-linux-android*-ar srv libdl.a libdl.o
+mkdir -p /opt/usr/local/lib
+cp libdl.a /opt/usr/local/lib
+cp libdl.a /opt/usr/local/lib/libpthread.a
+cp libdl.a /opt/usr/local/lib/librt.a
+  
   rm -rf c-ares*
   rm -rf sqlite-autoconf*
   rm -rf zlib-*
   rm -rf expat-*
   rm -rf openssl-*
   rm -rf libssh2-*
+  rm -rf libdl*
 #
  echo "all complete!"
